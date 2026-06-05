@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
+<meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>Legacy Luxe Decor</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
 
 <style>
 :root{
   --black:#0b0b0b;
   --gold:#c8a24a;
   --ivory:#f7f3ea;
-  --beige:#d8c3a5;
+  --glass:rgba(255,255,255,0.06);
 }
 
 *{
@@ -21,161 +21,200 @@
   box-sizing:border-box;
 }
 
+html{
+  scroll-behavior:smooth;
+}
+
 body{
-  font-family:Inter, sans-serif;
+  font-family:Inter;
   background:var(--black);
   color:var(--ivory);
   overflow-x:hidden;
 }
 
-/* HERO */
-.hero{
-  height:100vh;
-  background:url('https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
-  position:relative;
+/* ===== NAV (Apple style blur bar) ===== */
+nav{
+  position:fixed;
+  top:0;
+  width:100%;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:18px 10%;
+  background:rgba(0,0,0,0.35);
+  backdrop-filter:blur(20px);
+  z-index:1000;
+  border-bottom:1px solid rgba(255,255,255,0.06);
+}
+
+nav h1{
+  font-family:"Playfair Display";
+  color:var(--gold);
+  font-size:16px;
+  letter-spacing:3px;
+}
+
+nav a{
+  margin-left:18px;
+  color:var(--ivory);
+  text-decoration:none;
+  font-size:13px;
+  opacity:0.7;
+  transition:0.3s;
+}
+
+nav a:hover{
+  opacity:1;
+  color:var(--gold);
+}
+
+/* ===== SECTIONS ===== */
+section{
+  min-height:100vh;
   display:flex;
   align-items:center;
   justify-content:center;
-  text-align:center;
+  padding:120px 10%;
+  position:relative;
+}
+
+/* ===== HERO (Apple cinematic style) ===== */
+.hero{
+  background:url('https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=2000&q=80') center/cover no-repeat;
+  transform:scale(1.05);
 }
 
 .hero::before{
   content:"";
   position:absolute;
-  top:0;left:0;
-  width:100%;height:100%;
-  background:rgba(0,0,0,0.65);
+  inset:0;
+  background:radial-gradient(circle at center, rgba(0,0,0,0.3), rgba(0,0,0,0.9));
 }
 
 .hero-content{
-  position:relative;
+  text-align:center;
   z-index:2;
-  animation:fadeUp 1.5s ease;
+  animation:fadeUp 1.2s ease;
 }
 
 .hero h1{
-  font-family:"Playfair Display", serif;
-  font-size:3rem;
+  font-family:"Playfair Display";
+  font-size:4.5rem;
   color:var(--gold);
+  letter-spacing:2px;
 }
 
 .hero p{
   margin-top:15px;
   font-size:1.1rem;
-  color:var(--ivory);
+  opacity:0.8;
 }
 
-.btn{
-  margin-top:25px;
+.cta{
+  margin-top:30px;
   display:inline-block;
-  padding:12px 25px;
+  padding:12px 26px;
+  border:1px solid var(--gold);
+  border-radius:30px;
+  color:var(--gold);
+  text-decoration:none;
+  transition:0.4s;
+}
+
+.cta:hover{
   background:var(--gold);
   color:black;
-  text-decoration:none;
-  border-radius:30px;
-  font-weight:600;
-  transition:0.3s;
+  transform:translateY(-2px);
 }
 
-.btn:hover{
-  transform:scale(1.05);
-  background:#e0b85c;
-}
-
-/* SECTION */
-section{
-  padding:80px 10%;
-}
-
-.section-title{
-  text-align:center;
-  font-family:"Playfair Display", serif;
-  font-size:2rem;
-  color:var(--gold);
-  margin-bottom:40px;
-}
-
-/* SERVICES */
-.services{
+/* ===== FLOATING GLASS CARDS ===== */
+.grid{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-  gap:20px;
+  gap:25px;
+  width:100%;
 }
 
 .card{
-  background:#111;
-  border:1px solid rgba(200,162,74,0.2);
-  padding:25px;
-  border-radius:15px;
+  background:var(--glass);
+  border:1px solid rgba(255,255,255,0.08);
+  border-radius:18px;
+  padding:30px;
   text-align:center;
-  transition:0.3s;
-  cursor:pointer;
+  backdrop-filter:blur(10px);
+  transition:0.5s;
+  transform:translateY(20px);
+  opacity:0;
+}
+
+.card.show{
+  transform:translateY(0);
+  opacity:1;
 }
 
 .card:hover{
-  transform:translateY(-8px);
+  transform:translateY(-8px) scale(1.02);
   border-color:var(--gold);
 }
 
-/* GALLERY */
+/* ===== GALLERY (Apple clean grid) ===== */
 .gallery{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-  gap:15px;
+  gap:18px;
+  width:100%;
 }
 
 .gallery img{
   width:100%;
-  height:220px;
+  height:260px;
   object-fit:cover;
-  border-radius:12px;
-  transition:0.3s;
+  border-radius:16px;
+  transition:0.6s;
+  filter:brightness(0.85);
 }
 
 .gallery img:hover{
-  transform:scale(1.03);
+  transform:scale(1.05);
+  filter:brightness(1.05);
 }
 
-/* CONTACT */
+/* ===== CONTACT ===== */
 .contact{
   display:grid;
   grid-template-columns:1fr 1fr;
-  gap:40px;
-}
-
-input, textarea{
+  gap:50px;
   width:100%;
-  padding:12px;
-  margin-bottom:15px;
-  border:none;
-  border-radius:8px;
-  background:#1a1a1a;
-  color:white;
 }
 
-textarea{
-  height:120px;
+input,textarea{
+  width:100%;
+  padding:14px;
+  margin-bottom:14px;
+  background:rgba(255,255,255,0.05);
+  border:1px solid rgba(255,255,255,0.1);
+  border-radius:10px;
+  color:white;
+  outline:none;
 }
 
 button{
-  background:var(--gold);
-  border:none;
-  padding:12px;
   width:100%;
-  border-radius:8px;
+  padding:14px;
+  border:none;
+  background:var(--gold);
+  color:black;
   font-weight:600;
+  border-radius:10px;
   cursor:pointer;
+  transition:0.3s;
 }
 
-/* FOOTER */
-footer{
-  text-align:center;
-  padding:30px;
-  border-top:1px solid rgba(255,255,255,0.1);
-  font-size:0.9rem;
+button:hover{
+  transform:scale(1.02);
 }
 
-/* FLOATING BUTTON */
+/* ===== FLOAT BUTTON ===== */
 .whatsapp{
   position:fixed;
   bottom:20px;
@@ -185,19 +224,18 @@ footer{
   padding:14px 16px;
   border-radius:50px;
   text-decoration:none;
-  font-weight:600;
-  box-shadow:0 10px 20px rgba(0,0,0,0.3);
+  z-index:1000;
 }
 
-/* ANIMATION */
+/* ===== ANIMATIONS ===== */
 @keyframes fadeUp{
-  from{opacity:0; transform:translateY(30px);}
+  from{opacity:0; transform:translateY(40px);}
   to{opacity:1; transform:translateY(0);}
 }
 
-/* RESPONSIVE */
+/* ===== MOBILE ===== */
 @media(max-width:768px){
-  .hero h1{font-size:2rem;}
+  .hero h1{font-size:2.8rem;}
   .contact{grid-template-columns:1fr;}
 }
 </style>
@@ -205,77 +243,89 @@ footer{
 
 <body>
 
+<!-- NAV -->
+<nav>
+  <h1>LEGACY LUXE</h1>
+  <div>
+    <a href="#services">Services</a>
+    <a href="#gallery">Gallery</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
+
 <!-- HERO -->
-<div class="hero">
+<section class="hero">
   <div class="hero-content">
     <h1>Legacy Luxe Decor</h1>
     <p>Elevate Your Space. Leave a Legacy.</p>
-    <a href="#services" class="btn">Explore Collection</a>
+    <a href="#services" class="cta">Explore Experience</a>
   </div>
-</div>
+</section>
 
 <!-- SERVICES -->
 <section id="services">
-  <h2 class="section-title">Our Services</h2>
-  <div class="services">
+  <div class="grid">
     <div class="card">Wall Panels</div>
     <div class="card">Chandeliers</div>
     <div class="card">Curtains</div>
-    <div class="card">Decorative Mirrors</div>
+    <div class="card">Mirrors</div>
     <div class="card">Artificial Flowers</div>
     <div class="card">Wallpapers</div>
-    <div class="card">TV Console Designs</div>
+    <div class="card">TV Consoles</div>
     <div class="card">Furniture</div>
-    <div class="card">Interior Consultation</div>
+    <div class="card">Interior Design</div>
     <div class="card">Luxury Materials</div>
   </div>
 </section>
 
 <!-- GALLERY -->
-<section>
-  <h2 class="section-title">Signature Designs</h2>
+<section id="gallery">
   <div class="gallery">
-    <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=800&q=80">
-    <img src="https://images.unsplash.com/photo-1616486701797-0f33f61038b2?auto=format&fit=crop&w=800&q=80">
-    <img src="https://images.unsplash.com/photo-1615873968403-89e068629265?auto=format&fit=crop&w=800&q=80">
-    <img src="https://images.unsplash.com/photo-1616486029423-1a1a2f6c4e39?auto=format&fit=crop&w=800&q=80">
+    <img src="https://images.unsplash.com/photo-1600585152220-90363fe7e115?auto=format&fit=crop&w=1000&q=80">
+    <img src="https://images.unsplash.com/photo-1616594039964-ae9021a400a0?auto=format&fit=crop&w=1000&q=80">
+    <img src="https://images.unsplash.com/photo-1615874959474-d609969a20ed?auto=format&fit=crop&w=1000&q=80">
+    <img src="https://images.unsplash.com/photo-1618220179428-22790b461013?auto=format&fit=crop&w=1000&q=80">
   </div>
 </section>
 
 <!-- CONTACT -->
-<section>
-  <h2 class="section-title">Contact Us</h2>
+<section id="contact">
   <div class="contact">
 
     <div>
-      <input type="text" placeholder="Full Name"/>
-      <input type="email" placeholder="Email Address"/>
-      <textarea placeholder="Your Message"></textarea>
+      <input placeholder="Your Name"/>
+      <input placeholder="Email"/>
+      <textarea placeholder="Project Details"></textarea>
       <button>Send Inquiry</button>
     </div>
 
     <div>
-      <p><strong>WhatsApp:</strong> +2347019937454</p>
-      <p><strong>Email:</strong> legacyluxdecor@gmail.com</p>
-      <p><strong>Instagram:</strong> @legacyluxdecor</p>
-      <br>
-      <p style="color:var(--beige)">
-        We create timeless luxury interiors designed to elevate your space and define your legacy.
-      </p>
+      <h2 style="color:var(--gold); font-family:Playfair Display;">Luxury Contact</h2>
+      <p>WhatsApp: +2347019937454</p>
+      <p>Email: legacyluxdecor@gmail.com</p>
+      <p>Instagram: @legacyluxdecor</p>
     </div>
 
   </div>
 </section>
 
-<!-- FOOTER -->
-<footer>
-  © 2026 Legacy Luxe Decor. All Rights Reserved.
-</footer>
+<!-- WHATSAPP -->
+<a class="whatsapp" href="https://wa.me/2347019937454" target="_blank">WhatsApp</a>
 
-<!-- WHATSAPP BUTTON -->
-<a class="whatsapp" href="https://wa.me/2347019937454" target="_blank">
-  WhatsApp
-</a>
+<script>
+// Apple-style scroll reveal
+const cards = document.querySelectorAll('.card');
+
+const observer = new IntersectionObserver(entries=>{
+  entries.forEach(entry=>{
+    if(entry.isIntersecting){
+      entry.target.classList.add('show');
+    }
+  });
+},{threshold:0.2});
+
+cards.forEach(card=>observer.observe(card));
+</script>
 
 </body>
 </html>
