@@ -1,38 +1,194 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Legacy Luxe Decor</title>
 <style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial, sans-serif;
+}
 body{
 background:#111;
-color:#d4af37;
-font-family:Arial,sans-serif;
-text-align:center;
-padding:50px;
-}
-h1{
-font-size:40px;
-}
-p{
-font-size:20px;
 color:white;
+line-height:1.6;
 }
-a{
-background:#d4af37;
+header{
+background:#000;
+padding:20px;
+text-align:center;
+border-bottom:2px solid gold;
+}
+header h1{
+color:gold;
+font-size:2rem;
+}
+.hero{
+padding:80px 20px;
+text-align:center;
+background:linear-gradient(rgba(0,0,0,.7),rgba(0,0,0,.7));
+}
+.hero h2{
+font-size:2.5rem;
+color:gold;
+margin-bottom:20px;
+}
+.hero p{
+max-width:700px;
+margin:auto;
+font-size:1.1rem;
+}
+.btn{
+display:inline-block;
+margin-top:25px;
+padding:14px 28px;
+background:gold;
 color:black;
-padding:12px 24px;
+font-weight:bold;
 text-decoration:none;
-border-radius:8px;
+border-radius:5px;
+}
+section{
+padding:60px 20px;
+max-width:1100px;
+margin:auto;
+}
+.section-title{
+text-align:center;
+color:gold;
+margin-bottom:30px;
+font-size:2rem;
+}
+.services{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:20px;
+}
+.card{
+background:#1a1a1a;
+padding:20px;
+border:1px solid #333;
+border-radius:10px;
+}
+.card h3{
+color:gold;
+margin-bottom:10px;
+}
+.about{
+text-align:center;
+max-width:800px;
+margin:auto;
+}
+.contact{
+text-align:center;
+}
+.contact a{
+color:gold;
+text-decoration:none;
+}
+footer{
+text-align:center;
+padding:30px;
+border-top:1px solid #333;
+margin-top:40px;
+}
+.whatsapp{
+position:fixed;
+bottom:20px;
+right:20px;
+background:#25D366;
+color:white;
+padding:15px 18px;
+border-radius:50px;
+text-decoration:none;
+font-weight:bold;
 }
 </style>
 </head>
 <body>
-
-<h1>Legacy Luxe Decor</h1>
-
-<p>Elevate Your Space. Leave a Legacy.</p>
-
-<a href="https://wa.me/">Contact Us</a>
-
+<header>
+<h1>LEGACY LUXE DECOR</h1>
+</header>
+<section class="hero">
+<h2>Elevate Your Space. Leave a Legacy.</h2>
+<p>
+Premium home décor and interior styling solutions designed
+to transform ordinary spaces into elegant, luxurious environments.
+</p>
+<a class="btn" href="https://wa.me/2347019937454">
+Contact Us On WhatsApp
+</a>
+</section>
+<section>
+<h2 class="section-title">About Us</h2>
+<div class="about">
+<p>
+Legacy Luxe Decor specializes in luxury interior décor,
+premium furnishings, and elegant finishing touches that
+bring beauty, comfort, and sophistication into every home.
+From modern living rooms to complete interior transformations,
+we help clients create spaces they are proud of.
+</p>
+</div>
+</section>
+<section>
+<h2 class="section-title">Our Services</h2>
+<div class="services">
+<div class="card">
+<h3>Wall Panels</h3>
+<p>Modern decorative wall solutions.</p>
+</div>
+<div class="card">
+<h3>Chandeliers</h3>
+<p>Elegant lighting for luxury interiors.</p>
+</div>
+<div class="card">
+<h3>Curtains</h3>
+<p>Premium curtains and window treatments.</p>
+</div>
+<div class="card">
+<h3>Decorative Mirrors</h3>
+<p>Stylish mirrors for homes and offices.</p>
+</div>
+<div class="card">
+<h3>Artificial Flowers</h3>
+<p>Beautiful floral décor arrangements.</p>
+</div>
+<div class="card">
+<h3>Wallpapers</h3>
+<p>Luxury wallpapers and accent walls.</p>
+</div>
+<div class="card">
+<h3>TV Console Designs</h3>
+<p>Custom entertainment wall concepts.</p>
+</div>
+<div class="card">
+<h3>Furniture</h3>
+<p>Elegant furniture and décor pieces.</p>
+</div>
+<div class="card">
+<h3>Interior Consultation</h3>
+<p>Professional interior design guidance.</p>
+</div>
+</div>
+</section>
+<section class="contact">
+<h2 class="section-title">Contact Us</h2>
+<p>WhatsApp: +234 701 993 7454</p>
+<p>Email: legacyluxdecor@gmail.com</p>
+<p>Instagram: @legacyluxdecor</p>
+<a class="btn" href="https://wa.me/2347019937454">
+Chat With Us
+</a>
+</section>
+<footer>
+<p>© 2026 Legacy Luxe Decor. All Rights Reserved.</p>
+</footer>
+<a class="whatsapp" href="https://wa.me/2347019937454">
+WhatsApp
+</a>
 </body>
 </html>
